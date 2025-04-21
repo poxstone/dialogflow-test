@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat con Dialogflow</title>
+    <script>
+        async function enviarMensaje() {
+            const mensaje = document.getElementById("mensaje").value;
+            const respuesta = await fetch("/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: mensaje })
+            });
+            const datos = await respuesta.json();
+            document.getElementById("respuesta").innerText = datos.response;
+        }
+    </script>
+</head>
+<body>
+    <h2>Chat con Dialogflow</h2>
+    <input type="text" id="mensaje" placeholder="Escribe algo..." />
+    <button onclick="enviarMensaje()">Enviar</button>
+    <p><strong>Respuesta:</strong> <span id="respuesta"></span></p>
+</body>
+</html>

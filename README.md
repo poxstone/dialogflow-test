@@ -10,7 +10,7 @@
 ```bash
 python3 -m virtualenv .venv;
 source .venv/bin/activate;
-pip install -r requirements.txt
+pip install -r requirements.txt;
 ```
 ## Run
 ```bash
@@ -40,7 +40,8 @@ http://localhost:8080/ask
 
 - Curl
 ```bash
-curl -X POST http://localhost:8080/ask \
+HOST="http://localhost:8080";
+curl -X POST ${HOST}/ask \
      -H "Content-Type: application/json" \
      -d '{"sesionId":"e4820134-3c81-4112-adea-bf398128bdd7","message": "Hola"}'
 ```
